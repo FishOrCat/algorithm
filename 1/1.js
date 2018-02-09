@@ -1,7 +1,6 @@
-const { cases, validate } = require("./cases.js");
 const ksum = function ksum(arr, N, V) {
     const res = arguments[3] || new Set();
-    if (N == 1 && arr.indexOf(V) > -1 && !res.has(V)) {
+    if (N == 1 && !res.has(V) && arr.indexOf(V) > -1) {
         return Array.from(res.add(V));
     }
     if (N == 1) {
@@ -18,4 +17,5 @@ const ksum = function ksum(arr, N, V) {
     }
     return false;
 };
-console.log(cases.map((value, index) => validate(value, ksum(...value))));
+
+module.exports = ksum;
